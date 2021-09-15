@@ -1,0 +1,107 @@
+﻿@model LoanSharkMVC.Models.LoanSharkModel
+
+<div class="container mt-1">
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+            <h1 class="display-5 fw-bold lh-1 mb-3">
+                Loan Calculator
+            </h1>
+
+            <div style="background-color: lightgray;">
+                <form asp-action = "LoanShark" asp-controller="Home" method="post">
+                    <label>Loan Amount:</label>
+                    <input class="form-control" asp-for="PrincipalAmount" type="number" placeholder="principal amount" style="width:100%"
+                           id="principalInput" value="@Model.PrincipalAmount" min="0">
+                    <label>Payments (months):</label>
+                    <input class="form-control" asp-for="TotalMonths" type="number" placeholder="payments" style="width:100%"
+                           id="termInput" value="@Model.TotalMonths" min="0">
+                    <label>Rate (percentage):</label>
+                    <input class="form-control" asp-for="Rate" type="number" placeholder="rate" style="width:100%"
+                           id="rateInput" value="@Model.Rate" min="0">
+                    <div class="d-flex justify-content-end p-2">
+                        <button type="submit" id="submitBtn" 
+                                style="border: 2px solid lightblue; color: blue;">
+                            Calculate
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col">
+            <h5 class="lh-1 mt-5 text-center"><i>Your Monthly Payments</i></h5>
+            <h1 class="text-center p-2" id="monthlyPayment">$@Model.MonthlyPayment</h1>
+            <div class="row">
+                <div class="col-4">
+                    <p style="color: black;">Total Principal</p>
+                </div>
+                <div class="col-6">
+                    <p style="color: black;" id="totalPrincipal" class="text-center">$@Model.PrincipalAmount</p>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <p style="color: black;"> Total Interest</p>
+                </div>
+                <div class="col-6">
+                    <p style="color: black;" id="totalInterest" class="text-center">$@Model.TotalInterest</p>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <p style="color: black;">Total Cost</p>
+                </div>
+                <div class="col-6">
+                    <p style="color: black;" id="totalCost" class="text-center"><b>$@Model.TotalCost</b></p>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row table-responsive gy-sm-2 gy-md-0 p-2" style="height:400px">
+
+        <table class="table table-striped table-sm" style="overflow-y: scroll; height: auto">
+            <thead style="background-color: blue; color: white;">
+                <tr>
+                    <td>Month</td>
+                    <td>Payment</td>
+                    <td>Principal</td>
+                    <td>Interest</td>
+                    <td>Total Interest</td>
+                    <td>Balance</td>
+                </tr>
+            </thead>
+            <tbody id="results">
+                @if (@Model.Results.Count() > 0)
+            {
+                @for(int i = 0; i < @Model.Results.Count(); i++)
+                {
+                    double[] row = @Model.Results[i];
+
+                <tr>
+                    <td>@row[0]</td>
+                    <td>@row[1]</td>
+
+                    <td>@row[2]</td>
+                    <td>@row[3]</td>
+
+                    <td>@row[4]</td>
+                    <td>@row[5]</td>
+
+                </tr>
+                }
+            }
+            </tbody>
+        </table>
+
+    </div>
+</div>

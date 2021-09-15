@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!--- =================== main Section ====================-->
+ 
+  
+        <div class="row g-5  py-5 row-cols-1 row-cols-lg-2">
+            <div class="col order-last order-lg-first">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Loan Shark: A Coding Project</h1>
+                <h4 class="lead">
+                    This application generates an amortization schedule for mortgage payments.
+                </h4>
+                <ul class="fa-ul pt-2 checklist">
+                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>CSS and Bootstrap Layout</li>
+                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>C# Fundamentals</li>
+                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>C# Loops</li>
+                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>C# Functions</li> 
+                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>C# If/Then/Else</li>
+                    <li><span class="fa-li"><i class="fas fa-check-square"></i></span>C# Boolean Logic</li>
+                </ul>
+                <div>
+                    <form asp-action="LoanShark" asp-controller="Home" method="get">
+                        <button type="submit" class="btn btn-outline-dark btn-lg px-4 me-md-2">Try It Out</button>
+                    </form>
+                </div>
+
+                <div class="fw-bold mt-5">
+                    <div class="d-flex">
+                        <div class="row">
+                            <div class="col"><h1>C#</h1></div>
+                            <div class="col"><i class="fab fa-bootstrap fa-3x bsicon"></i></div>
+                            <div class="col"><i class="fab fa-html5 fa-3x html5icon"></i></div>
+                            <div class="col"><i class="fab fa-css3-alt fa-3x css3icon"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex flex-wrap align-items-center">
+                <img src="img/shark.svg" alt="logo for project 1"
+                     class="img-fluid center-block d-block mx-auto" width="1000"/>
+            </div>
+        </div>
+ 
+ 
+<!--- =================== End of main Section ====================-->
