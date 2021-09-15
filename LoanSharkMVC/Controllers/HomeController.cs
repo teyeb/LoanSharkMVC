@@ -35,7 +35,7 @@ namespace LoanSharkMVC.Controllers
 
             loanModel.PrincipalAmount = 0.00;
             loanModel.TotalMonths = 0;
-            loanModel.Rate = 0.00;
+            loanModel.Rate = 0.00D;
             loanModel.TotalInterest = 0.00;
             loanModel.TotalCost = 0;
             loanModel.MonthlyPayment = 0.00;

@@ -11,13 +11,13 @@
                 <form asp-action = "LoanShark" asp-controller="Home" method="post">
                     <label>Loan Amount:</label>
                     <input class="form-control" asp-for="PrincipalAmount" type="number" placeholder="principal amount" style="width:100%"
-                           id="principalInput" value="@Model.PrincipalAmount" min="0">
+                           id="principalInput" value="@Model.PrincipalAmount" min="0" step="any">
                     <label>Payments (months):</label>
                     <input class="form-control" asp-for="TotalMonths" type="number" placeholder="payments" style="width:100%"
                            id="termInput" value="@Model.TotalMonths" min="0">
                     <label>Rate (percentage):</label>
                     <input class="form-control" asp-for="Rate" type="number" placeholder="rate" style="width:100%"
-                           id="rateInput" value="@Model.Rate" min="0">
+                           id="rateInput" value="@Model.Rate" min="0.0" step="any">
                     <div class="d-flex justify-content-end p-2">
                         <button type="submit" id="submitBtn" 
                                 style="border: 2px solid lightblue; color: blue;">
